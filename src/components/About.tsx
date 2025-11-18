@@ -15,18 +15,18 @@ const About = () => {
     <section id="about" className="py-24 px-4" ref={ref}>
       <div className="max-w-2xl mx-auto">
         <motion.h2
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8 }}
           className="text-4xl font-bold mb-8"
         >
           About
         </motion.h2>
 
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-4 text-muted-foreground leading-relaxed"
         >
           <p>I'm Hassan. Design engineer in Punjab, born in Pakistan.</p>
@@ -57,17 +57,17 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-12 flex flex-wrap gap-6 justify-center"
         >
           {projects.map((project, index) => (
             <div
               key={index}
-              className="w-48 h-56 bg-white dark:bg-card rounded-lg shadow-lg p-3 rotate-[-2deg] hover:rotate-0 transition-transform duration-300"
+              className="w-48 h-56 bg-white dark:bg-card rounded-2xl shadow-lg p-3 rotate-[-2deg] hover:rotate-0 transition-transform duration-300"
             >
-              <div className={`w-full h-40 bg-gradient-to-br ${project.color} rounded-md mb-3`} />
+              <div className={`w-full h-40 bg-gradient-to-br ${project.color} rounded-2xl mb-3`} />
               <p className="text-sm font-medium text-center text-foreground">{project.name}</p>
             </div>
           ))}
