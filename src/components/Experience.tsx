@@ -44,18 +44,18 @@ const Experience = () => {
     <section id="experience" className="py-24 px-4" ref={ref}>
       <div className="max-w-2xl mx-auto">
         <motion.h2
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8 }}
           className="text-4xl font-bold mb-12"
         >
           Work Experience
         </motion.h2>
 
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-6"
         >
           {experiences.map((exp, index) => (
@@ -71,7 +71,7 @@ const Experience = () => {
                 {exp.company && (
                   <>
                     <span className="text-muted-foreground">at</span>
-                    <Badge variant="outline" className={exp.color}>
+                    <Badge variant="outline" className={`${exp.color} rounded-2xl`}>
                       {exp.company}
                     </Badge>
                   </>

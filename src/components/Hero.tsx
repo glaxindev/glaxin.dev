@@ -19,13 +19,13 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 inline-block"
         >
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent mx-auto" />
+          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-accent mx-auto" />
         </motion.div>
 
         <motion.h1
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-6xl font-bold mb-4 tracking-tight"
         >
           Hey, I'm Hassan.
@@ -34,24 +34,24 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto leading-relaxed"
         >
           Most designers can't code. Most developers can't design. I do both. 3 years turning ideas into profitable products.
         </motion.p>
 
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6"
         >
-          <Button size="lg" onClick={scrollToContact} className="rounded-full px-8">
+          <Button size="lg" onClick={scrollToContact} className="rounded-2xl px-8">
             Hire me
           </Button>
-          <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20 px-4 py-2">
+          <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20 px-4 py-2 rounded-2xl">
             <span className="inline-block w-2 h-2 rounded-full bg-accent mr-2 animate-pulse" />
             Open to Opportunities
           </Badge>
