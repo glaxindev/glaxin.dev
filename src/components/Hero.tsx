@@ -51,7 +51,7 @@ const Hero = () => {
           <Button size="lg" onClick={scrollToContact} className="rounded-2xl px-8">
             Hire me
           </Button>
-          <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20 px-4 py-2 rounded-2xl">
+          <Badge variant="secondary" className="px-5 py-2.5 rounded-2xl text-sm">
             <span className="inline-block w-2 h-2 rounded-full bg-accent mr-2 animate-pulse" />
             Open to Opportunities
           </Badge>

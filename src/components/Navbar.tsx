@@ -18,7 +18,9 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-4 sm:px-6 py-3 bg-background/80 backdrop-blur-lg border border-border rounded-2xl shadow-lg max-w-fit"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto"
+    >
+      <div className="px-4 sm:px-6 py-3 bg-background/80 backdrop-blur-lg border border-border rounded-2xl shadow-lg"
     >
       <div className="flex items-center gap-1 sm:gap-2">
         <Button
@@ -111,6 +113,7 @@ const Navbar = () => {
         >
           Reach Me
         </Button>
+      </div>
       </div>
     </motion.nav>
   );
