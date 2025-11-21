@@ -6,72 +6,89 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const projects = [
-    { name: "My Dope Buddy", color: "from-blue-500 to-purple-600" },
-    { name: "Waifu Anime", color: "from-purple-500 to-pink-500" },
+  const cards = [
+    { name: "My Dev Buddy", image: "/images/about/vscode.png" },
+    { name: "I Love React", image: "/images/about/reactjs.webp" },
   ];
 
   return (
     <section id="about" className="py-24 px-4" ref={ref}>
       <div className="max-w-2xl mx-auto">
         <motion.h2
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-8"
+          className="text-3xl md:text-4xl font-bold mb-8 reveal-up"
         >
-          About
+          About Me
         </motion.h2>
 
         <motion.div
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4 text-muted-foreground leading-relaxed"
+          className="space-y-4 text-muted-foreground leading-relaxed reveal-up"
         >
-          <p>I'm Hassan. Design engineer in Punjab, born in Pakistan.</p>
-          
           <p>
-            <strong className="text-foreground">Here's what I actually do:</strong> I take your broken interfaces and make them work. Not just "look pretty" - actually function at 60fps while being accessible to everyone.
+            I'm Umair, better known online as Glaxin. A full-stack developer and
+            designer based in Pakistan.
           </p>
 
           <p>
-            Most designers can't code. Most developers can't design. I do both. While others debate aesthetics, I'm shipping pixel-perfect interfaces that perform. ARIA compliance isn't optional, it's standard.
+            <strong className="text-zinc-600 dark:text-zinc-300 font-semibold">
+              What I actually do:
+            </strong>{" "}
+            I take messy, outdated, or broken digital experiences and turn them
+            into clean, high-performance products. Not just good-looking but
+            fast, accessible, and built to scale.
           </p>
 
           <p>
-            I've built a large developer community on social media because I actually know what I'm talking about. My open-source projects prove it.
+            Most designers don’t understand engineering. Most developers ignore
+            design. I bridge both. While others argue about visuals, I’m
+            shipping refined, production-ready interfaces with real performance.
+            Accessibility isn’t an extra, it’s the baseline.
           </p>
 
           <p>
-            The result? Interfaces that don't just impress your users - they convert them.
+            I’ve grown an active developer audience online by sharing what I
+            know and building things that genuinely help people. My open-source
+            work speaks for itself.
           </p>
 
           <p>
-            When I'm not coding, I'm at the gym or watching anime. Hot chocolate over coffee, always.
+            The outcome? Experiences that not only impress users, they convert,
+            retain, and build trust over time.
           </p>
 
-          <p className="text-foreground font-medium">
-            I don't just build interfaces. I build interfaces that work.
+          <p>
+            When I'm not building products, I'm usually sketching ideas or
+            tweaking side projects. And yes, clean minimal UIs beat cluttered
+            layouts every time.
+          </p>
+
+          <p className="font-medium">
+            I don’t just build products. I build products that work.
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { y: 0, opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 flex flex-wrap gap-6 justify-center"
-        >
-          {projects.map((project, index) => (
+        <div className="mt-12 flex flex-wrap gap-6 justify-center">
+          {cards.map((card, index) => (
             <div
               key={index}
-              className="w-48 h-56 bg-white dark:bg-card rounded-2xl shadow-lg p-3 rotate-[-2deg] hover:rotate-0 transition-transform duration-300"
+              className="w-48 h-56 bg-white dark:bg-card rounded-sm shadow-xl border border-zinc-200/80 dark:border-zinc-900 p-3 rotate-[-2deg] transition-transform duration-300"
             >
-              <div className={`w-full h-40 bg-gradient-to-br ${project.color} rounded-2xl mb-3`} />
-              <p className="text-sm font-medium text-center text-foreground">{project.name}</p>
+              <img
+                src={card.image}
+                alt={card.name}
+                className={`w-full h-40 mb-3 rounded-sm aspect-square`}
+              />
+              <p className="text-sm font-normal text-center text-zinc-600 dark:text-zinc-300 tracking-wide italic">
+                {card.name}
+              </p>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="section-divider mt-24" />
       </div>

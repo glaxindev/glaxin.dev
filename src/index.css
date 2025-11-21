@@ -76,7 +76,7 @@ All colors MUST be HSL.
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 0 0% 95%;
-    
+
     --sidebar-background: 0 0% 8%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 0 0% 95%;
@@ -95,7 +95,8 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
   }
 
   html {
@@ -106,6 +107,82 @@ All colors MUST be HSL.
 @layer utilities {
   .section-divider {
     @apply w-32 h-px bg-border mx-auto my-16;
+  }
+}
+
+/* Animated gradient blobs for hero background */
+@keyframes blob-float-1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(20vw, -18vh, 0) scale(1.05);
+  }
+  66% {
+    transform: translate3d(-15vw, 5vh, 0) scale(0.95);
+  }
+}
+
+@keyframes blob-float-2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(-20vw, 6vh, 0) scale(0.95);
+  }
+  66% {
+    transform: translate3d(30vw, -12vh, 0) scale(1.05);
+  }
+}
+
+@keyframes blob-float-3 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -22vh, 0) scale(1.04);
+  }
+}
+
+@keyframes blob-float-4 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(18vw, 5vh, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-12vw, -18vh, 0) scale(0.95);
+  }
+  75% {
+    transform: translate3d(20vw, 4vh, 0) scale(1);
+  }
+}
+
+@keyframes blob-float-5 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(-25vw, -8vh, 0) scale(0.95);
+  }
+  66% {
+    transform: translate3d(18vw, 5vh, 0) scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-1,
+  .animate-blob-2,
+  .animate-blob-3,
+  .animate-blob-4,
+  .animate-blob-5 {
+    animation: none !important;
   }
 }
 

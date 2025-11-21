@@ -11,6 +11,8 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import "lenis/dist/lenis.css";
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 

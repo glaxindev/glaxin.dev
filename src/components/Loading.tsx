@@ -22,7 +22,10 @@ const Loading = ({ onComplete }: { onComplete: () => void }) => {
         transition={{ duration: 0.5 }}
         className="flex flex-col items-center gap-4"
       >
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent animate-pulse" />
+        <img
+          src="/images/pfp.jpg"
+          className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent animate-pulse"
+        />
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
