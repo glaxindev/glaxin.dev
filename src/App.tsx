@@ -9,6 +9,9 @@ import Loading from "./components/Loading";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 const queryClient = new QueryClient();
 
 import "lenis/dist/lenis.css";
@@ -22,6 +25,8 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <Analytics />
+          <SpeedInsights />
           {isLoading && <Loading onComplete={() => setIsLoading(false)} />}
           {!isLoading && (
             <BrowserRouter>

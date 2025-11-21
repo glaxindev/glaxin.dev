@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
 type Theme = "light" | "dark";
 
@@ -11,7 +17,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme;
+    const savedTheme = localStorage.getItem("WebTheme") as Theme;
     return savedTheme || "light";
   });
 
@@ -19,7 +25,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("WebTheme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
