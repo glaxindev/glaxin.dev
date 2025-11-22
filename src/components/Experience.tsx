@@ -49,7 +49,7 @@ const Experience = () => {
       period: "Sep 2024 - Jan 2025",
       position: "Web Dev",
       company: "Bumblebee",
-      link: "https://bumblebeebot.xyz/",
+      link: "https://bumblebee.glaxin.dev/",
       bgColor: "bg-sky-100 dark:bg-sky-900/30",
       borderColor: "border-sky-100 dark:border-sky-800",
       iconColor: "text-sky-600 dark:text-sky-300",
