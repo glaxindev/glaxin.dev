@@ -24,7 +24,7 @@ export default function Header(): JSX.Element {
       : "bg-white/80 border-zinc-200 text-zinc-700"
   }`;
 
-  const dividerClasses = `w-px h-5 mx-4 ${
+  const dividerClasses = `w-px h-5 md:mx-4 ${
     theme === "dark" ? "bg-border" : "bg-zinc-200"
   }`;
 
@@ -150,7 +150,7 @@ export default function Header(): JSX.Element {
           </div>
 
           {/* Divider like PC */}
-          {/* <div className={dividerClasses} /> */}
+          <div className={dividerClasses} />
 
           {/* Center: first social icon only */}
           <div className="flex items-center">
@@ -173,7 +173,7 @@ export default function Header(): JSX.Element {
           </div>
 
           {/* Divider like PC */}
-          {/* <div className={dividerClasses} /> */}
+          <div className={dividerClasses} />
 
           {/* Right: theme toggle + Reach Me button */}
           <div className="flex items-center gap-2">

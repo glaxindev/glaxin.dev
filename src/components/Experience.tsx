@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Badge } from "./ui/badge";
 import { FaInstagram } from "react-icons/fa";
@@ -9,7 +7,6 @@ import { CgBee } from "react-icons/cg";
 
 const Experience = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const experiences = [
     {
@@ -72,21 +69,11 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 px-4" ref={ref}>
       <div className="max-w-2xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center reveal-up"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center reveal-up">
           Work Experience
-        </motion.h2>
+        </h2>
 
-        <motion.div
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-6"
-        >
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
             <div
               key={index}
@@ -155,7 +142,7 @@ const Experience = () => {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="section-divider mt-24" />
       </div>

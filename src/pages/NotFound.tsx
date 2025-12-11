@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+import { House } from "lucide-react";
+
 const NotFound = () => {
   const location = useLocation();
 
@@ -29,9 +31,10 @@ const NotFound = () => {
 
         <a
           href="/"
-          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 py-2.5 font-medium transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 font-medium transition-colors"
         >
-          Return to Home
+          <House className="h-5 w-5" />
+          Return To Home
         </a>
       </div>
     </div>

@@ -1,10 +1,7 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const cards = [
     { name: "My Dev Buddy", image: "/images/about/vscode.png" },
@@ -14,21 +11,11 @@ const About = () => {
   return (
     <section id="about" className="py-24 px-4" ref={ref}>
       <div className="max-w-2xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold mb-8 reveal-up"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 reveal-up">
           About Me
-        </motion.h2>
+        </h2>
 
-        <motion.div
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-4 text-muted-foreground leading-relaxed reveal-up"
-        >
+        <div className="space-y-4 text-muted-foreground leading-relaxed reveal-up">
           <p>
             I'm Umair, better known online as Glaxin. A full-stack developer and
             designer based in Pakistan.
@@ -70,7 +57,7 @@ const About = () => {
           <p className="font-medium">
             I don’t just build products. I build products that work.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mt-12 flex flex-wrap gap-6 justify-center">
           {cards.map((card, index) => (
@@ -81,7 +68,7 @@ const About = () => {
               <img
                 src={card.image}
                 alt={card.name}
-                className={`w-full h-40 mb-3 rounded-sm aspect-square`}
+                className="w-full h-40 mb-3 rounded-sm aspect-square"
               />
               <p className="text-sm font-normal text-center text-zinc-600 dark:text-zinc-300 tracking-wide italic">
                 {card.name}

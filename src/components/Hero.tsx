@@ -79,8 +79,8 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl text-zinc-900 dark:text-zinc-200 md:text-6xl font-semibold mb-4 tracking-tight"
         >
@@ -90,8 +90,8 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto leading-relaxed"
         >
@@ -100,8 +100,8 @@ const Hero = () => {
         </motion.p>
 
         <motion.div
-          initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-row items-center justify-center gap-3 mb-6"
         >
@@ -110,10 +110,10 @@ const Hero = () => {
             onClick={scrollToContact}
             className="rounded-2xl px-6 py-3.5"
           >
-            Hire me
+            Hire Me
           </Button>
           <Badge variant="green" className="px-5 py-3 rounded-full text-sm">
-            <span className="inline-block w-2 h-2 rounded-full bg-lime-700 dark:bg-lime-800 mr-2 animate-pulse opacity-75" />
+            <span className="inline-block w-2 h-2 rounded-full bg-lime-700 dark:bg-emerald-700 mr-2 animate-pulse" />
             <span className="font-normal hidden md:inline">
               Available For Work
             </span>

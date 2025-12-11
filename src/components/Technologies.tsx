@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 import {
@@ -8,23 +6,31 @@ import {
   SiFigma,
   SiMongodb,
   SiTailwindcss,
+  SiDiscord,
 } from "react-icons/si";
 import { FiGitBranch } from "react-icons/fi";
-import { FaPython } from "react-icons/fa6";
+// import { FaPython } from "react-icons/fa6";
 import { BiLogoTypescript } from "react-icons/bi";
 
 const Technologies = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const technologies = [
+    // {
+    //   name: "Python",
+    //   description: "Programming Language",
+    //   icon: FaPython,
+    //   color:
+    //     "from-blue-400/20 to-yellow-400/20 dark:from-blue-500/20 dark:to-yellow-500/20",
+    //   iconColor: "text-blue-500 dark:text-blue-400",
+    // },
     {
-      name: "Python",
-      description: "Programming Language",
-      icon: FaPython,
+      name: "DiscordJS",
+      description: "Discord Bot Framework",
+      icon: SiDiscord,
       color:
-        "from-blue-400/20 to-yellow-400/20 dark:from-blue-500/20 dark:to-yellow-500/20",
-      iconColor: "text-blue-500 dark:text-blue-400",
+        "from-[#A5AFFD]/30 to-[#5865F2]/20 dark:from-[#5865F2]/25 dark:to-[#4752C4]/25",
+      iconColor: "text-[#5865F2] dark:text-[#4752C4]",
     },
     {
       name: "NodeJS",
@@ -87,50 +93,30 @@ const Technologies = () => {
   return (
     <section id="technologies" className="py-24 px-4" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold mb-4 reveal-up"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 reveal-up">
           Current Technologies
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-muted-foreground mb-12 reveal-up"
-        >
+        <p className="text-muted-foreground mb-12 reveal-up">
           I'm proficient in a range of modern technologies that empower me to
           build highly functional solutions, crafted with purpose. These are
           some of my main technologies.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={isInView ? { opacity: 1, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal-up">
           {technologies.map((tech, index) => {
             const Icon = tech.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 overflow-hidden reveal-up"
+                className="group relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 overflow-hidden"
               >
-                {/* decorative gradient background (keeps behind card content) */}
+                {/* decorative gradient background */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${tech.color} rounded-2xl pointer-events-none`}
                 />
 
                 <div className="relative flex items-start gap-4">
-                  {/* Icon wrapper:
-                      - bg brightens on hover in light: group-hover:bg-white/30
-                      - in dark mode it brightens slightly different: dark:group-hover:bg-white/10
-                      - subtle scale on hover and smooth transition
-                  */}
                   <div className="p-3 bg-background/80 rounded-2xl transition-all duration-300 transform group-hover:scale-[1.03] group-hover:bg-white/30 dark:group-hover:bg-white/5">
                     <Icon
                       className={`w-8 h-8 ${tech.iconColor} transition-all duration-300 transform group-hover:scale-[1.03] group-hover:brightness-125 dark:group-hover:brightness-90`}
@@ -149,7 +135,7 @@ const Technologies = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
 
         <div className="section-divider mt-24" />
       </div>
