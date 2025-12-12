@@ -14,10 +14,11 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const themeStorageKey = "theme";
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem("WebTheme") as Theme;
+    const savedTheme = localStorage.getItem(themeStorageKey) as Theme;
     return savedTheme || "light";
   });
 
@@ -25,7 +26,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-    localStorage.setItem("WebTheme", theme);
+    localStorage.setItem(themeStorageKey, theme);
   }, [theme]);
 
   const toggleTheme = () => {
