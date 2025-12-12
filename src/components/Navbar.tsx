@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 import { getActiveSocialMediaLinks } from "@/constants/socialMedia";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "./ui/button";
+import {
+  ThemeAnimationType,
+  useModeAnimation,
+} from "react-theme-switch-animation";
 
 export default function Header(): JSX.Element {
   const activeSocialLinks = getActiveSocialMediaLinks();
@@ -31,17 +35,63 @@ export default function Header(): JSX.Element {
   const iconButtonTextClass =
     theme === "dark" ? "text-foreground" : "text-zinc-700";
 
-  // Floating wrapper used for both desktop and mobile (visibility toggled with responsive utilities)
-  // const floatingWrapperBase =
-  //   "fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto px-4 py-3";
-  // const desktopHeaderWrapper = `hidden sm:flex items-center justify-center ${floatingWrapperBase}`;
-  // const mobileHeaderWrapper = `sm:hidden ${floatingWrapperBase}`;
-
   // safe-first-social helper
   const firstSocial =
     activeSocialLinks && activeSocialLinks.length > 0
       ? activeSocialLinks[0]
       : null;
+
+  /**
+   * ThemeToggle component
+   * - Uses useModeAnimation with ThemeAnimationType.CIRCLE
+   * - Attaches returned ref to the actual button element (desktop/mobile)
+   * - Calls toggleSwitchTheme() to run the package animation
+   * - Calls your existing toggleTheme() shortly after to keep ThemeContext in sync
+   */
+  const ThemeToggle: React.FC<
+    React.ButtonHTMLAttributes<HTMLButtonElement> & { size?: "sm" | "md" }
+  > = ({ className = "", size = "md", ...props }) => {
+    const { ref, toggleSwitchTheme, isDarkMode } = useModeAnimation({
+      animationType: ThemeAnimationType.CIRCLE,
+    });
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      // run the animation provided by the package
+      toggleSwitchTheme();
+
+      // keep your ThemeContext in sync — short delay so animation is visible
+      setTimeout(() => {
+        try {
+          toggleTheme();
+        } catch (err) {
+          // swallow errors to avoid blocking animation in edge cases
+        }
+      }, 80);
+
+      if (props.onClick) props.onClick(e);
+    };
+
+    // Restore original exact icon sizes: desktop uses w-[23px] h-[23px], mobile w-6 h-6
+    const iconClass = size === "sm" ? "w-6 h-6" : "w-[23px] h-[23px]";
+    const paddingClass = "p-2"; // keep same padding as original
+
+    return (
+      // assigning ref from useModeAnimation to the button element
+      <button
+        ref={ref}
+        onClick={handleClick}
+        aria-label="Toggle theme"
+        className={`rounded-xl inline-flex items-center justify-center hover:opacity-80 transition ${paddingClass} ${className}`}
+        {...props}
+      >
+        {isDarkMode ? (
+          <Sun className={iconClass} />
+        ) : (
+          <Moon className={iconClass} />
+        )}
+      </button>
+    );
+  };
 
   return (
     <>
@@ -94,18 +144,8 @@ export default function Header(): JSX.Element {
           <div className={dividerClasses} />
 
           <div className="flex items-center gap-2">
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="rounded-xl p-2 inline-flex items-center justify-center hover:opacity-80 transition"
-            >
-              {theme === "light" ? (
-                <Moon className="w-[23px] h-[23px]" />
-              ) : (
-                <Sun className="w-[23px] h-[23px]" />
-              )}
-            </button>
+            {/* Theme toggle now uses ThemeToggle (desktop) */}
+            <ThemeToggle className="p-2" size="md" />
 
             {/* Reach Me button */}
             {Button ? (
@@ -173,21 +213,12 @@ export default function Header(): JSX.Element {
           </div>
 
           {/* Divider like PC */}
-          <div className={dividerClasses} />
+          {/* <div className={dividerClasses} /> */}
 
-          {/* Right: theme toggle + Reach Me button */}
+          {/* Right: theme toggle + Reach Me button (mobile) */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="p-2 rounded-md hover:opacity-80 transition"
-            >
-              {theme === "light" ? (
-                <Moon className="w-6 h-6" />
-              ) : (
-                <Sun className="w-6 h-6" />
-              )}
-            </button>
+            {/* Theme toggle uses same ThemeToggle but smaller */}
+            <ThemeToggle className="p-2" size="sm" />
 
             {Button ? (
               <Button

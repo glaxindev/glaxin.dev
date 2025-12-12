@@ -11,17 +11,17 @@ const Workflow = () => {
         <div className="flex flex-wrap items-center justify-center gap-y-3 gap-x-2 sm:gap-x-3">
           {steps.map((step, index) => (
             <div key={step} className="flex items-center reveal-up">
-              <span className="text-sm sm:text-sm md:text-base font-medium text-muted-foreground/70">
+              <span className="text-sm sm:text-sm md:text-base font-medium text-muted-foreground/80">
                 {step}
               </span>
 
               {index < steps.length - 1 && (
                 <>
                   {/* Tiny mobile line */}
-                  <div className="sm:hidden w-3 h-px bg-muted-foreground/15 mx-1" />
+                  <div className="sm:hidden w-3 h-px bg-muted-foreground/20 mx-1" />
 
                   {/* Normal lines for tablet/PC */}
-                  <div className="hidden sm:block w-6 md:w-10 lg:w-12 h-px bg-muted-foreground/15 mx-2 md:mx-3" />
+                  <div className="hidden sm:block w-6 md:w-10 lg:w-12 h-px bg-muted-foreground/20 mx-2 md:mx-3" />
                 </>
               )}
             </div>
